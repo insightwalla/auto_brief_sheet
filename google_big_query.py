@@ -88,6 +88,9 @@ def get_data_from_big_query():
         # keep only start time and end time in columns
         data['start'] = data['start'].apply(lambda x: pd.to_datetime(x).time())
         data['end'] = data['end'].apply(lambda x: pd.to_datetime(x).time())
+        data['start'] = data['start'].apply(lambda x: (datetime.datetime.combine(datetime.date(1,1,1), x) + datetime.timedelta(hours=1)).time())
+        data['end'] = data['end'].apply(lambda x: (datetime.datetime.combine(datetime.date(1,1,1), x) + datetime.timedelta(hours=1)).time())
+
         # change the date to d m y
         data['date'] = data['date'].apply(lambda x: x.strftime('%d/%m/%Y'))
 
