@@ -73,7 +73,7 @@ def get_data_from_big_query():
         data = data[data['Venue'].isin(res_to_rename.values())]
 
         # create a filter for the venue
-        venues_updated = data['Venue'].unique()
+        venues_updated = res_to_rename.values()
         venue = st.sidebar.selectbox('Select Venue', venues_updated)
         if venue:
             data = data[data['Venue'] == venue]
