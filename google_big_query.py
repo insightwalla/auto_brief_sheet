@@ -58,18 +58,19 @@ def get_data_from_big_query():
         #st.write(venues)
 
         res_to_rename = {
-            'Shoreditch': 'D2',
             'Covent Garden': 'D1',
-            'Kensington': 'D6',
+            'Shoreditch': 'D2',
             'Kings Cross': 'D3',
             'Carnaby': 'D4',
-            'Manchester': 'D7',
             'Edinburgh': 'D5',
+            'Kensington': 'D6',
+            'Manchester': 'D7',
             'Birmingham': 'D8',
             'Canary Wharf': 'D9'
         }
 
         data['Venue'] = data['Venue'].replace(res_to_rename)
+        data = data[data['Venue'].isin(res_to_rename.values())]
 
         # create a filter for the venue
         venues_updated = data['Venue'].unique()
