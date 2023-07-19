@@ -9,7 +9,7 @@ class GoogleBigQuery:
         self.key_path = key_path
 
     def connect(self):
-        self.credentials = service_account.Credentials.from_service_account_file(self.key_path)
+        self.credentials = service_account.Credentials.from_service_account_info(st.secrets["gcp_service_account"])
         self.client = bigquery.Client(credentials=self.credentials, project=self.credentials.project_id)
         return self.client
     
