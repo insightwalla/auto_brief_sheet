@@ -29,7 +29,7 @@ def _get_data(query):
     return results
 
 def get_data_from_big_query():
-    data_start = st.sidebar.date_input('Start Date', value=None, min_value=None, max_value=None, key=None)
+    data_start = st.sidebar.date_input('Start Date', value=None, min_value=None, max_value=None, key='start')
     if data_start:
         # transform date to datetime
         data_start = datetime.datetime.combine(data_start, datetime.datetime.min.time())
