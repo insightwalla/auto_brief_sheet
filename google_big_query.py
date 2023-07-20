@@ -44,7 +44,7 @@ def get_data_from_big_query():
 
         query_forecast = '''
         SELECT *
-            FROM `custom_connector_forecasted_rota.shifts`
+            FROM `rota_ready_integration.shifts`
             WHERE start BETWEEN '{}' AND '{}'
         '''.format(data_start, data_end)
         
